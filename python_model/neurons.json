@@ -1,0 +1,82 @@
+[
+    {
+        "threshold": 5,
+        "leak": 1,
+        "inhibit": false
+    },
+    {
+        "threshold": 5,
+        "leak": 1,
+        "inhibit": false
+    },
+    {
+        "threshold": 5,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    },
+    {
+        "threshold": 0,
+        "leak": 0,
+        "inhibit": true
+    }
+]
