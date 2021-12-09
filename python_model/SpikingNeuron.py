@@ -42,7 +42,7 @@ class SpikingNeuron(object):
         # Determine if current neuron wants to spike on next tick
         if self.potential >= self.threshold:
             self.spike_next = True
-            self.potential = 0
+            self.potential -= self.threshold
         else:
             self.spike_next = False
             
