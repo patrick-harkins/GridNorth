@@ -51,9 +51,13 @@ def load_neurons(neurons, crossbar):
 # main driver
 def main():
     Neurons = load_neurons('neurons.json', 'crossbar.json')
-    iteration = 0
-    while True:
-        print(f'TICK: {iteration}')
+    numSpikes = [0]*len(Neurons)
+    if len(sys.argv) > 1:
+        ticks = int(sys.argv[1])
+    else:
+        ticks = 1000
+    for tick in range(ticks):
+        print(f'TICK: {tick}')
         for N in Neurons:
             N.tick()
         for n, N in enumerate(Neurons):
@@ -61,8 +65,8 @@ def main():
             print(f'\tNEURON: {n}')
             print(f'\t\tSPIKE: {N.spike}')
             print(f'\t\tPOTENTIAL: {N.potential}')
-        iteration += 1
-        sleep(3)
+            if N.spike:
+                numSpikes[n] += 1
     
 # main execution
 if __name__ == '__main__':
