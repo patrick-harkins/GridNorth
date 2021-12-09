@@ -2,7 +2,8 @@ class SpikingNeuron(object):
     # Create SpikingNeuron object
     # The configurable parts of a SpikingNeuron are threshold, leak, inhibit
     # potential is initialized to 0, spike is initialized to false
-    def __init__(self, threshold, leak, inhibit):
+    def __init__(self, id, threshold, leak, inhibit):
+        self.id = id
         self.threshold = threshold
         self.leak = leak
         self.inhibit = inhibit
@@ -35,7 +36,7 @@ class SpikingNeuron(object):
         for axon in self.axons:
             # Axon connection wants to send spike
             if axon.spike:
-                add = -1 if axon.inhibit else 1
+                add = -1 if axon.inhibit else 1 
                 self.add_pot(add)
         # Current neuron leaks
         self.do_leak()
