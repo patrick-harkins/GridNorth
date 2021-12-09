@@ -1,23 +1,23 @@
 [
     {
-        "threshold": 5,
+        "threshold": 2,
         "leak": 1,
         "inhibit": false
     },
     {
-        "threshold": 5,
+        "threshold": 2,
         "leak": 1,
         "inhibit": false
     },
     {
-        "threshold": 5,
+        "threshold": 1,
         "leak": 0,
         "inhibit": true
     },
     {
-        "threshold": 0,
-        "leak": 0,
-        "inhibit": true
+        "threshold": 4,
+        "leak": 1,
+        "inhibit": false
     },
     {
         "threshold": 0,
