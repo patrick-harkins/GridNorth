@@ -12,9 +12,10 @@ def neuron_integrity(neurons):
     try:
         assert len(neurons) == 16
         for n in neurons:
-            assert 'threshold' in n and 'leak' in n and 'inhibit' in n
+            assert 'id' in n and 'threshold' in n and 'leak' in n and 'inhibit' in n
+            assert n['id'] >= 0 and n['id'] <= 15
             assert n['threshold'] >= 0 and n['threshold'] <= 15
-            assert n['leak'] >= -1 and n['leak'] <= 2
+            assert n['leak'] >= -2 and n['leak'] <= 1
             assert type(n['inhibit']) == bool
     except AssertionError:
         print('Bad neuron file')
@@ -50,7 +51,7 @@ def load_neurons(neurons, crossbar):
 
 # main driver
 def main():
-    Neurons = load_neurons('neurons.json', 'crossbar.json')
+    Neurons = load_neurons('fizzbuzz.json', 'crossbar.json')
     numSpikes = [0]*len(Neurons)
     if len(sys.argv) > 1:
         ticks = int(sys.argv[1])
@@ -67,6 +68,7 @@ def main():
             print(f'\t\tPOTENTIAL: {N.potential}')
             if N.spike:
                 numSpikes[n] += 1
+    print(numSpikes)
     
 # main execution
 if __name__ == '__main__':
