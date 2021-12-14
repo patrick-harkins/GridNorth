@@ -27,7 +27,7 @@ Running a python test of a network you have in mind is incredibly simple and con
 
 Configuring the crossbar connections is as simple as indexing other neurons in the list.  All you need to do in the crossbar configurtation file is add the neuron id's that each neuron has a crossbar connection to.  NOTE: In our architecture, spikes are recieved, not sent. I.e. if you want Neuron 0 and Neuron 1 to spike Neuron 4, you edit Neuron 4's crossbar (the 5th one down) to read `[0, 1]`.
 
-See `presentation/figues/fizzbuzz.png` and `python_model/fizzbuzz.json` to see how we set up the json configuration to solve fizzbuzz.
+See `presentation/figues/fizzbuzz.png`, `python_model/fizzbuzz.json`, and `python_model/crossbar.json` to see how we set up the json configuration to solve fizzbuzz.
 
 Usage: `$ python3 main.py number-of-ticks neurons-config-json crossbar-config-json`
 Using without argv arguments will result in 1000 ticks, fizzbuzz.json, and crossbar.json.
