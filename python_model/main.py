@@ -18,7 +18,7 @@ def neuron_integrity(neurons):
             assert n['leak'] >= -2 and n['leak'] <= 1
             assert type(n['inhibit']) == bool
     except AssertionError:
-        print('Bad neuron file')
+        print('Bad neuron file', file=sys.stderr)
         sys.exit(1)
 
 # checks to make sure crossbar file is done correctly
@@ -30,7 +30,7 @@ def crossbar_integrity(crossbar):
             for c in connections:
                 assert c >= 0 and c <= 15
     except AssertionError:
-        print('Bad crossbar file')
+        print('Bad crossbar file', file=sys.stderr)
         sys.exit(2)
 
 # Load in neurons, crossbar connections from json files
@@ -51,12 +51,19 @@ def load_neurons(neurons, crossbar):
 
 # main driver
 def main():
-    Neurons = load_neurons('fizzbuzz.json', 'crossbar.json')
-    numSpikes = [0]*len(Neurons)
-    if len(sys.argv) > 1:
-        ticks = int(sys.argv[1])
-    else:
-        ticks = 1000
+    argv = sys.argv[1:]
+    ticks = 1000
+    neuron_config = 'fizzbuzz.json'
+    crossbar_config = 'crossbar.json'
+    if argv:
+        if len(argv) != 3:
+            print('Incorrect argv usage\nUSAGE: $ python3 main.py number-of-ticks neurons-config-json crossbar-config-json', file=sys.stderr)
+            sys.exit(-1)
+        ticks = int(argv[0])
+        neuron_config = argv[1]
+        crossbar_config = argv[2]
+    Neurons = load_neurons(neuron_config, crossbar_config)
+    spikeBuffer = [0]*len(Neurons)
     for tick in range(ticks):
         print(f'TICK: {tick}')
         for N in Neurons:
@@ -67,8 +74,8 @@ def main():
             print(f'\t\tSPIKE: {N.spike}')
             print(f'\t\tPOTENTIAL: {N.potential}')
             if N.spike:
-                numSpikes[n] += 1
-    print(numSpikes)
+                spikeBuffer[n] += 1
+    print(spikeBuffer)
     
 # main execution
 if __name__ == '__main__':
